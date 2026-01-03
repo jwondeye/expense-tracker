@@ -59,13 +59,14 @@ export default function App() {
     if (!form.amount || !form.category || !form.date) return;
 
     await fetch(`${API}/expenses`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        ...form,
-        amount: Number(form.amount),
-      }),
-    });
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    ...form,
+    amount: Number(form.amount),
+    date: new Date(form.date).toISOString().split("T")[0]
+  }),
+});
 
     setForm({ amount: "", category: "", description: "", date: "" });
     fetchData();
