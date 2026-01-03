@@ -71,6 +71,16 @@ export default function App() {
     fetchData();
   };
 
+  const deleteExpense = async (id) => {
+  await fetch(`${API}/expenses/${id}`, {
+    method: "DELETE",
+  });
+
+  // refresh expenses after delete
+  fetchData();
+};
+
+
   const addCategory = () => {
     if (!newCategory.trim()) return;
     if (categories.includes(newCategory.toLowerCase())) return;
@@ -213,15 +223,24 @@ export default function App() {
             </tr>
           </thead>
           <tbody>
-            {expenses.map(e => (
-              <tr key={e.id}>
-                <td>{e.date}</td>
-                <td>{e.category}</td>
-                <td>{e.description}</td>
-                <td>${e.amount}</td>
-              </tr>
-            ))}
-          </tbody>
+  {expenses.map(e => (
+    <tr key={e.id}>
+      <td>{e.date}</td>
+      <td>{e.category}</td>
+      <td>{e.description}</td>
+      <td>${e.amount}</td>
+      <td>
+        <button
+          onClick={() => deleteExpense(e.id)}
+          style={{ color: "red" }}
+        >
+          Delete
+        </button>
+      </td>
+    </tr>
+  ))}
+</tbody>
+
         </table>
       </div>
     </div>
