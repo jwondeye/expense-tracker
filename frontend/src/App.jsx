@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
 
-const API = "http://localhost:8000";
+const API = "https://expense-tracker-backend-qytm.onrender.com";
 const COLORS = ["#3b82f6", "#fb7185", "#22c55e", "#facc15", "#a855f7"];
 
 export default function App() {
