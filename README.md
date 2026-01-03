@@ -18,3 +18,7 @@ A full-stack expense tracking application built with React and FastAPI.
 - AI-powered budgeting advisor
 - User authentication
 - Category limits
+  
+🔌 Backend Repository
+
+https://github.com/jwondeye/expense-tracker-backend
