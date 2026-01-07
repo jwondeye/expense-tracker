@@ -136,6 +136,15 @@ button {
   z-index: 2;
 }
 
+h1, h2, h3, .nav strong {
+  user-select: none;
+  cursor: default;
+}
+
+.nav strong {
+  outline: none;
+}
+
 
 
 
