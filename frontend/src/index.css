@@ -1,40 +1,209 @@
-body {
-  font-family: system-ui, sans-serif;
-  background: #f5f5f5;
+* {
+  box-sizing: border-box;
 }
 
-.container {
-  max-width: 900px;
-  margin: auto;
-  background: white;
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  background: #000;
+  color: #fff;
+  font-family: system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+/* NAV */
+.nav {
+  height: 70px;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #222;
+  position: relative;
+  z-index: 5;
+}
+
+.nav a {
+  color: #8b5cf6;
+  margin-left: 20px;
+  text-decoration: none;
+}
+
+/* HERO */
+.hero {
+  min-height: calc(100vh - 70px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.hero h1 {
+  font-size: 3.2rem;
+}
+
+.hero p {
+  color: #aaa;
+  max-width: 700px;
+  margin: 20px auto 40px;
+}
+
+.hero button {
+  background: #22c55e;
+  color: #000;
+  padding: 14px 36px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* CONTENT — HOME ONLY */
+.hero .container {
+  max-width: 1100px;
+  margin: 80px auto;
   padding: 20px;
 }
 
-.budget {
-  border: 2px solid green;
-  padding: 10px;
-  margin-bottom: 20px;
+
+.row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 12px;
 }
 
-.budget.over {
-  background: #ffd6d6;
-  border-color: red;
+input, select {
+  background: #111;
+  color: white;
+  border: 1px solid #333;
+  padding: 6px;
 }
 
-.form input {
-  margin: 5px;
+.dashboard {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 40px;
+  align-items: start;
 }
 
-button {
-  margin: 5px;
-}
-
+/* TABLE */
 table {
   width: 100%;
   border-collapse: collapse;
+  background: #fff;
+  color: #000;
 }
 
-td, th {
-  border: 1px solid #ccc;
-  padding: 6px;
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
 }
+
+/* FLOATING BACKGROUND */
+.bg-particles {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  top: 110vh;
+  width: 14px;
+  height: 14px;
+  background: rgba(34, 197, 94, 0.6);
+  border-radius: 3px;
+  animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  to {
+    transform: translateY(-150vh);
+    opacity: 0;
+  }
+}
+
+/* ================= TRACKER VISUAL MATCH ================= */
+
+/* Monthly budget box */
+.budget-box {
+  border: 2px solid #22c55e;
+  border-radius: 6px;
+  padding: 16px;
+  margin: 16px 0 24px;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+/* Budget text */
+.budget-box strong {
+  display: block;
+  margin-bottom: 6px;
+}
+
+/* Table: transparent, outlined */
+table {
+  background: transparent !important;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+th,
+td {
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: transparent;
+  color: white;
+}
+
+/* Header slightly brighter */
+th {
+  font-weight: 600;
+}
+
+/* Delete button */
+table button {
+  background: white;
+  color: black;
+  border: none;
+  padding: 4px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+/* Input row spacing */
+.row {
+  margin-bottom: 14px;
+}
+
+/* Inputs */
+input,
+select {
+  background: #111;
+  border: 1px solid #333;
+  color: white;
+}
+
+/* Add Expense button */
+button {
+  background: #22c55e;
+  color: black;
+  border: none;
+  padding: 6px 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
