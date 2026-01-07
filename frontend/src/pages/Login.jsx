@@ -17,7 +17,7 @@ export default function Login() {
       setError("");
       setMessage("");
 
-      if (!email || (!isSignup && !password)) {
+      if (!email || !password) {
         setError("Email and password required");
         return;
       }
@@ -63,17 +63,14 @@ export default function Login() {
         />
         <br /><br />
 
-        {!isSignup && (
-          <>
-            <input
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <br /><br />
-          </>
-        )}
+        {/* ✅ PASSWORD IS REQUIRED FOR BOTH LOGIN AND SIGNUP */}
+        <input
+          type="password"
+          placeholder={isSignup ? "Create password" : "Password"}
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <br /><br />
 
         {error && <div style={{ color: "red" }}>{error}</div>}
         {message && <div style={{ color: "#22c55e" }}>{message}</div>}
@@ -93,7 +90,11 @@ export default function Login() {
 
         <p
           style={{ marginTop: 16, cursor: "pointer", color: "#8b5cf6" }}
-          onClick={() => setIsSignup(!isSignup)}
+          onClick={() => {
+            setIsSignup(!isSignup);
+            setError("");
+            setMessage("");
+          }}
         >
           {isSignup
             ? "Already have an account? Login"
