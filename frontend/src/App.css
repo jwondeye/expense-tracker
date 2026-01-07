@@ -145,6 +145,16 @@ h1, h2, h3, .nav strong {
   outline: none;
 }
 
+/* Disable text cursor everywhere by default */
+* {
+  caret-color: transparent;
+}
+
+/* Re-enable caret ONLY where typing is expected */
+input,
+textarea {
+  caret-color: auto;
+}
 
 
 
