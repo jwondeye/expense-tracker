@@ -1,6 +1,7 @@
-/* RESET */
+/* ================= GLOBAL RESET ================= */
 * {
   box-sizing: border-box;
+  caret-color: transparent; /* removes blinking cursor everywhere */
 }
 
 html, body {
@@ -11,7 +12,13 @@ html, body {
   font-family: system-ui, sans-serif;
 }
 
-/* NAV */
+/* Allow typing cursor ONLY in form fields */
+input,
+textarea {
+  caret-color: auto;
+}
+
+/* ================= NAV ================= */
 .nav {
   height: 70px;
   padding: 0 40px;
@@ -27,18 +34,37 @@ html, body {
   color: #8b5cf6;
   margin-left: 20px;
   text-decoration: none;
+  user-select: none;
 }
 
+.nav strong {
+  user-select: none;
+  cursor: default;
+  outline: none;
+}
 
+/* ================= LAYOUT ================= */
+.tracker-page {
+  width: 100%;
+  min-height: calc(100vh - 70px);
+}
 
-/* INPUT ROWS */
+.container {
+  width: 100%;
+  padding: 24px 48px;
+  margin: 0;
+  position: relative;
+  z-index: 2;
+}
+
+/* ================= ROWS ================= */
 .row {
   display: flex;
   gap: 12px;
   margin-bottom: 12px;
 }
 
-/* BUDGET BOX */
+/* ================= BUDGET BOX ================= */
 .budget-box {
   border: 1px solid #22c55e;
   border-radius: 8px;
@@ -52,7 +78,7 @@ html, body {
   background: rgba(239, 68, 68, 0.25);
 }
 
-/* DASHBOARD */
+/* ================= DASHBOARD ================= */
 .dashboard {
   display: grid;
   grid-template-columns: 420px 1fr;
@@ -60,7 +86,7 @@ html, body {
   align-items: start;
 }
 
-/* TABLE */
+/* ================= TABLE ================= */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -68,21 +94,24 @@ table {
   color: white;
 }
 
-th, td {
+th,
+td {
   border: 1px solid #333;
   padding: 10px;
   text-align: left;
+  user-select: none;
 }
 
-/* INPUTS */
-input, select {
+/* ================= INPUTS ================= */
+input,
+select {
   background: #111;
   color: white;
   border: 1px solid #333;
   padding: 6px 8px;
 }
 
-/* BUTTONS */
+/* ================= BUTTONS ================= */
 button {
   background: #22c55e;
   color: #000;
@@ -91,9 +120,10 @@ button {
   font-weight: 600;
   border-radius: 6px;
   cursor: pointer;
+  user-select: none;
 }
 
-/* PARTICLES */
+/* ================= PARTICLES ================= */
 .bg-particles {
   position: fixed;
   inset: 0;
@@ -112,50 +142,23 @@ button {
 }
 
 @keyframes floatUp {
-  from { transform: translateY(0); opacity: 0; }
-  10% { opacity: 0.6; }
-  to { transform: translateY(-150vh); opacity: 0; }
+  from {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  to {
+    transform: translateY(-150vh);
+    opacity: 0;
+  }
 }
 
-/* ===== FULL WIDTH TRACKER (CORRECT FIX) ===== */
-/* ===== TRACKER PAGE LAYOUT (FINAL, CORRECT) ===== */
-.tracker-page {
-  display: block;
-  width: 100%;
-  min-height: calc(100vh - 70px);
-}
-
-
-/* Container now truly fills horizontally */
-/* ===== FULL-WIDTH TRACKER CONTAINER ===== */
-.container {
-  width: 100%;
-  padding: 24px 48px;
-  margin: 0;
-  position: relative;
-  z-index: 2;
-}
-
-h1, h2, h3, .nav strong {
+/* ================= HEADINGS ================= */
+h1,
+h2,
+h3 {
   user-select: none;
   cursor: default;
 }
-
-.nav strong {
-  outline: none;
-}
-
-/* Disable text cursor everywhere by default */
-* {
-  caret-color: transparent;
-}
-
-/* Re-enable caret ONLY where typing is expected */
-input,
-textarea {
-  caret-color: auto;
-}
-
-
-
-
